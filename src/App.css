@@ -1,0 +1,14 @@
+.App {
+  background-color:black;
+}
+.r{
+  color:gold;
+}
+.mo{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center
+}
+.add{
+  display:flex
+}
