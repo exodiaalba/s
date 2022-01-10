@@ -25,13 +25,15 @@ const addHandler =(newmovie)=>{
       <NavBar/>
       <Filter/>
       <Add addHandler={addHandler}/>
+  
       <Switch>
-   
-      <Route path="/Home" component={Crs}/> 
+  
+      <Crs  path="/Home"/> 
      
       <Route path="/Movies" render={() => <MovieList movieList={movieList} /> } />
       <Route path="/Details/:id" render={ (props) => <Details {...props}list={movies} />   } />
       </Switch>
+      
     </div>
   );
 }
