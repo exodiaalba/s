@@ -6,7 +6,7 @@ import MovieList from './Component/MovieList';
 import NavBar from './Component/NavBar';
 import {movies} from './Component/Movies';
 import {useState} from 'react';
-import Cars from "./Component/Cars";
+import Crs from "./Component/Crs";
 import Details from "./Component/Details";
 import {Switch,Route} from "react-router-dom";
 
@@ -27,7 +27,7 @@ const addHandler =(newmovie)=>{
       <Add addHandler={addHandler}/>
       <Switch>
    
-      <Route path="/Home" component={Cars}/> 
+      <Route path="/Home" component={Crs}/> 
      
       <Route path="/Movies" render={() => <MovieList movieList={movieList} /> } />
       <Route path="/Details/:id" render={ (props) => <Details {...props}list={movies} />   } />
