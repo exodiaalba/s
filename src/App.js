@@ -6,22 +6,32 @@ import MovieList from './Component/MovieList';
 import NavBar from './Component/NavBar';
 import {movies} from './Component/Movies';
 import {useState} from 'react';
-import Cars from "./Component/cars";
+import Cars from "./Component/Cars";
+import Details from "./Component/Details";
+import {Switch,Route} from "react-router-dom";
+
 function App() {
    //console.log(movies);
 
    const [movieList,setmovieList]=useState (movies)
    console.log(movieList);
 
-
+const addHandler =(newmovie)=>{
+  setmovieList({...MovieList,newmovie})
+}
 
   return (
     <div className="App">
       <NavBar/>
       <Filter/>
-      <Add/>
-      <MovieList movieList={movieList} />
-      <Cars/>
+      <Add addHandler={addHandler}/>
+      <Switch>
+   
+      <Route path="/Home" component={Cars}/> 
+     
+      <Route path="/Movies" render={() => <MovieList movieList={movieList} /> } />
+      <Route path="/Details/:id" render={ (props) => <Details {...props}list={movies} />   } />
+      </Switch>
     </div>
   );
 }

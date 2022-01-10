@@ -2,7 +2,7 @@ import React ,{useState} from 'react' ;
 import {Button,Modal,Form} from 'react-bootstrap';
 
 
-export default function Add() {
+export default function Add({addHandler}) {
     const [show, setShow] = useState(false);
   //Modal Manipulation 
     const handleClose = () => setShow(false);
@@ -11,8 +11,13 @@ export default function Add() {
     const [title,settitle]= useState("");
     const [description,setdescription]= useState("");
     const [image,setimage]= useState("");
-    const [rate,setrate]= useState("");
+
   
+  function addmovie() {
+    addHandler({ title, description, image});
+    handleClose();
+  }
+
     return (
       <div classname="add">
         <Button variant="primary" onClick={handleShow}>
@@ -40,7 +45,7 @@ export default function Add() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={addmovie}>
               Save Changes
             </Button>
           </Modal.Footer>
